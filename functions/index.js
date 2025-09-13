@@ -21,7 +21,7 @@ const domain_mappings = {
 };
 
 // 需要重定向的路径
-const redirect_paths = ['/', '/login', '/signup', '/copilot'];
+const redirect_paths = ['/login', '/signup', '/copilot'];
 
 // EdgeOne Pages Function export
 export function onRequest(context) {
@@ -31,6 +31,17 @@ export function onRequest(context) {
 async function handleRequest(request) {
   const url = new URL(request.url);
   const current_host = url.host;
+  
+  // 添加鉴权逻辑
+  if (url.pathname === '/') {
+    return new Response('Access Forbidden', { status: 404 });
+  }
+  
+  // 特殊路径 /peroe 允许访问
+  if (url.pathname === '/peroe') {
+    // 重写路径为根路径以便正常处理
+    url.pathname = '/';
+  }
   
   // 检测Host头，优先使用Host头中的域名来决定后缀
   const host_header = request.headers.get('Host');
