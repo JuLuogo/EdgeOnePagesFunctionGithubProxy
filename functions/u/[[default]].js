@@ -1,23 +1,23 @@
 // 域名映射配置
 const domain_mappings = {
-  'github.com': 'gh.',
-  'avatars.githubusercontent.com': 'avatars-githubusercontent-com.',
-  'github.githubassets.com': 'github-githubassets-com.',
-  'collector.github.com': 'collector-github-com.',
-  'api.github.com': 'api-github-com.',
-  'raw.githubusercontent.com': 'raw-githubusercontent-com.',
-  'gist.githubusercontent.com': 'gist-githubusercontent-com.',
-  'github.io': 'github-io.',
-  'assets-cdn.github.com': 'assets-cdn-github-com.',
-  'cdn.jsdelivr.net': 'cdn.jsdelivr-net.',
-  'securitylab.github.com': 'securitylab-github-com.',
-  'www.githubstatus.com': 'www-githubstatus-com.',
-  'npmjs.com': 'npmjs-com.',
-  'git-lfs.github.com': 'git-lfs-github-com.',
-  'githubusercontent.com': 'githubusercontent-com.',
-  'github.global.ssl.fastly.net': 'github-global-ssl-fastly-net.',
-  'api.npms.io': 'api-npms-io.',
-  'github.community': 'github-community.'
+  'pixiv.net': 'px.',
+  'i.pximg.net': 'i-pximg-net.',
+  's.pximg.net': 's-pximg-net.',
+  'accounts.pixiv.net': 'accounts-pixiv-net.',
+  'www.pixiv.net': 'www-pixiv-net.',
+  'touch.pixiv.net': 'touch-pixiv-net.',
+  'app-api.pixiv.net': 'app-api-pixiv-net.',
+  'oauth.secure.pixiv.net': 'oauth-secure-pixiv-net.',
+  'public-api.secure.pixiv.net': 'public-api-secure-pixiv-net.',
+  'sketch.pixiv.net': 'sketch-pixiv-net.',
+  'factory.pixiv.net': 'factory-pixiv-net.',
+  'dic.pixiv.net': 'dic-pixiv-net.',
+  'en-dic.pixiv.net': 'en-dic-pixiv-net.',
+  'source.pixiv.net': 'source-pixiv-net.',
+  'imgaz.pixiv.net': 'imgaz-pixiv-net.',
+  'comic.pixiv.net': 'comic-pixiv-net.',
+  'novel.pixiv.net': 'novel-pixiv-net.',
+  'booth.pm': 'booth-pm.'
 };
 
 // 需要重定向的路径
@@ -136,9 +136,9 @@ new_response_headers.delete('content-length');
 
 // 获取当前主机名的前缀，用于匹配反向映射
 function getProxyPrefix(host) {
-  // 检查主机名是否以 gh. 开头
-  if (host.startsWith('gh.')) {
-    return 'gh.';
+  // 检查主机名是否以 px. 开头
+  if (host.startsWith('px.')) {
+    return 'px.';
   }
   
   // 检查其他映射前缀
@@ -183,7 +183,7 @@ async function modifyResponse(response, host_prefix, effective_hostname) {
   }
 
   // 处理相对路径，使用有效主机名
-  if (host_prefix === 'gh.') {
+  if (host_prefix === 'px.') {
     text = text.replace(
       /(?<=["'])\/(?!\/|[a-zA-Z]+:)/g,
       `https://${effective_hostname}/`
