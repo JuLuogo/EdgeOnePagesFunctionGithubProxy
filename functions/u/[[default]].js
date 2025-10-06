@@ -1,7 +1,7 @@
 // 域名映射配置
 const domain_mappings = {
   "www.pixiv.net": "x.",
-  "i.pximg.net": "video-twimg.",
+  "i.pximg.net": "i.1.0721030.xyz",
   "s.pximg.net": "pbs-twimg.",
   "cdn.onesignal.com": "api-x.",
   "imp.pixiv.net": "ads-api-x.",
