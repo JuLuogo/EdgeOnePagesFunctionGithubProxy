@@ -94,7 +94,13 @@ async function handleRequest(request) {
       corsHeaders.set('Access-Control-Allow-Origin', '*');
       corsHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
       corsHeaders.set('Access-Control-Allow-Headers', '*');
+<<<<<<< HEAD
       corsHeaders.set('Access-Control-Max-Age', '86400');
+=======
+      corsHeaders.set('Access-Control-Allow-Credentials', 'true');
+      corsHeaders.set('Access-Control-Max-Age', '86400');
+      corsHeaders.set('cache-control', 'public, max-age=14400');
+>>>>>>> 4ab79ea054fe27bd34f24a59d602a50023486b5a
       return new Response(null, { status: 204, headers: corsHeaders });
     }
     
@@ -108,18 +114,19 @@ async function handleRequest(request) {
     // 克隆响应以便处理内容
     const response_clone = response.clone();
     
-// 设置新的响应头
-const new_response_headers = new Headers(response.headers);
-new_response_headers.set('access-control-allow-origin', '*');
-new_response_headers.set('access-control-allow-credentials', 'true');
-new_response_headers.set('cache-control', 'public, max-age=14400');
-new_response_headers.delete('content-security-policy');
-new_response_headers.delete('content-security-policy-report-only');
-new_response_headers.delete('clear-site-data');
+    // 设置新的响应头
+    const new_response_headers = new Headers(response.headers);
+    // 添加标准CORS头
+    new_response_headers.set('Access-Control-Allow-Origin', '*');
+    new_response_headers.set('Access-Control-Allow-Credentials', 'true');
+    new_response_headers.set('cache-control', 'public, max-age=14400');
+    new_response_headers.delete('content-security-policy');
+    new_response_headers.delete('content-security-policy-report-only');
+    new_response_headers.delete('clear-site-data');
 
-// 添加这些行来处理编码问题
-new_response_headers.delete('content-encoding');
-new_response_headers.delete('content-length');
+    // 添加这些行来处理编码问题
+    new_response_headers.delete('content-encoding');
+    new_response_headers.delete('content-length');
     
     // 处理响应内容，替换域名引用，使用有效主机名来决定域名后缀
     const modified_body = await modifyResponse(response_clone, host_prefix, effective_host);
