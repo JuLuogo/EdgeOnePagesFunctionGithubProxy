@@ -88,6 +88,16 @@ async function handleRequest(request) {
   new_headers.set('Referer', new_url.href);
   
   try {
+    // 处理OPTIONS预检请求
+    if (request.method === 'OPTIONS') {
+      const corsHeaders = new Headers();
+      corsHeaders.set('Access-Control-Allow-Origin', '*');
+      corsHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      corsHeaders.set('Access-Control-Allow-Headers', '*');
+      corsHeaders.set('Access-Control-Max-Age', '86400');
+      return new Response(null, { status: 204, headers: corsHeaders });
+    }
+    
     // 发起请求
     const response = await fetch(new_url.href, {
       method: request.method,
