@@ -6,7 +6,8 @@ const domain_mappings = {
   "cdn.onesignal.com": "api-x.",
   "imp.pixiv.net": "ads-api-x.",
   "lc-event.pixiv.net": "abs-twimg.",
-  "pixon.ads-pixiv.net": "abs-0-twimg."
+  "pixon.ads-pixiv.net": "abs-0-twimg.",
+  "www.googletagmanager.com": "www-googletagmanager."
 };
 
 // 需要重定向的路径
