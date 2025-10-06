@@ -88,6 +88,16 @@ async function handleRequest(request) {
   new_headers.set('Referer', new_url.href);
   
   try {
+    // 处理OPTIONS预检请求
+    if (request.method === 'OPTIONS') {
+      const corsHeaders = new Headers();
+      corsHeaders.set('Access-Control-Allow-Origin', '*');
+      corsHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      corsHeaders.set('Access-Control-Allow-Headers', '*');
+      corsHeaders.set('Access-Control-Max-Age', '86400');
+      return new Response(null, { status: 204, headers: corsHeaders });
+    }
+    
     // 发起请求
     const response = await fetch(new_url.href, {
       method: request.method,
@@ -114,6 +124,11 @@ new_response_headers.delete('content-length');
     // 处理响应内容，替换域名引用，使用有效主机名来决定域名后缀
     const modified_body = await modifyResponse(response_clone, host_prefix, effective_host);
 
+    // 添加CORS头
+    new_response_headers.set('Access-Control-Allow-Origin', '*');
+    new_response_headers.set('Access-Control-Allow-Credentials', 'true');
+    
+    // 返回响应
     return new Response(modified_body, {
       status: response.status,
       headers: new_response_headers
