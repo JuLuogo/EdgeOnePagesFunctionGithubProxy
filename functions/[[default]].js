@@ -125,9 +125,9 @@ new_response_headers.delete('content-length');
 
 // 获取当前主机名的前缀，用于匹配反向映射
 function getProxyPrefix(host) {
-  // 检查主机名是否以 px. 开头
-  if (host.startsWith('px.')) {
-    return 'px.';
+  // 检查主机名是否以 X. 开头
+  if (host.startsWith('X.')) {
+    return 'X.';
   }
   
   // 检查其他映射前缀
@@ -172,7 +172,7 @@ async function modifyResponse(response, host_prefix, effective_hostname) {
   }
 
   // 处理相对路径，使用有效主机名
-  if (host_prefix === 'px.') {
+  if (host_prefix === 'X.') {
     text = text.replace(
       /(?<=["'])\/(?!\/|[a-zA-Z]+:)/g,
       `https://${effective_hostname}/`
