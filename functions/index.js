@@ -94,9 +94,7 @@ async function handleRequest(request) {
       corsHeaders.set('Access-Control-Allow-Origin', '*');
       corsHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
       corsHeaders.set('Access-Control-Allow-Headers', '*');
-      corsHeaders.set('Access-Control-Allow-Credentials', 'true');
-      corsHeaders.set('Access-Control-Max-Age', '86400');
-      corsHeaders.set('cache-control', 'public, max-age=14400');
+
       return new Response(null, { status: 204, headers: corsHeaders });
     }
     
@@ -127,6 +125,11 @@ async function handleRequest(request) {
     // 处理响应内容，替换域名引用，使用有效主机名来决定域名后缀
     const modified_body = await modifyResponse(response_clone, host_prefix, effective_host);
 
+    // 添加CORS头
+    new_response_headers.set('Access-Control-Allow-Origin', '*');
+    new_response_headers.set('Access-Control-Allow-Credentials', 'true');
+    
+    // 返回响应
     return new Response(modified_body, {
       status: response.status,
       headers: new_response_headers
