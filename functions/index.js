@@ -1,6 +1,6 @@
 // 域名映射配置
 const domain_mappings = {
-  "x.com": "X.",
+  "x.com": "x.",
   "video.twimg.com": "video-twimg.",
   "pbs.twimg.com": "pbs-twimg.",
   "api.x.com": "api-x.",
