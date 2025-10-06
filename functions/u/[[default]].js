@@ -1,23 +1,12 @@
 // 域名映射配置
 const domain_mappings = {
-  'pixiv.net': 'px.',
-  'i.pximg.net': 'i-pximg-net.',
-  's.pximg.net': 's-pximg-net.',
-  'accounts.pixiv.net': 'accounts-pixiv-net.',
-  'www.pixiv.net': 'www-pixiv-net.',
-  'touch.pixiv.net': 'touch-pixiv-net.',
-  'app-api.pixiv.net': 'app-api-pixiv-net.',
-  'oauth.secure.pixiv.net': 'oauth-secure-pixiv-net.',
-  'public-api.secure.pixiv.net': 'public-api-secure-pixiv-net.',
-  'sketch.pixiv.net': 'sketch-pixiv-net.',
-  'factory.pixiv.net': 'factory-pixiv-net.',
-  'dic.pixiv.net': 'dic-pixiv-net.',
-  'en-dic.pixiv.net': 'en-dic-pixiv-net.',
-  'source.pixiv.net': 'source-pixiv-net.',
-  'imgaz.pixiv.net': 'imgaz-pixiv-net.',
-  'comic.pixiv.net': 'comic-pixiv-net.',
-  'novel.pixiv.net': 'novel-pixiv-net.',
-  'booth.pm': 'booth-pm.'
+  "x.com": "X.",
+  "video.twimg.com": "video-twimg.",
+  "pbs.twimg.com": "pbs-twimg.",
+  "api.x.com": "api-x.",
+  "ads-api.x.com": "ads-api-x.",
+  "abs.twimg.com": "abs-twimg.",
+  "abs-0.twimg.com": "abs-0-twimg."
 };
 
 // 需要重定向的路径
