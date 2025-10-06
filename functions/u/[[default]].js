@@ -1,12 +1,12 @@
 // 域名映射配置
 const domain_mappings = {
-  "x.com": "x.",
-  "video.twimg.com": "video-twimg.",
-  "pbs.twimg.com": "pbs-twimg.",
-  "api.x.com": "api-x.",
-  "ads-api.x.com": "ads-api-x.",
-  "abs.twimg.com": "abs-twimg.",
-  "abs-0.twimg.com": "abs-0-twimg."
+  "www.pixiv.net": "x.",
+  "i.pximg.net": "i.1.0721030.xyz",
+  "s.pximg.net": "pbs-twimg.",
+  "cdn.onesignal.com": "api-x.",
+  "imp.pixiv.net": "ads-api-x.",
+  "lc-event.pixiv.net": "abs-twimg.",
+  "pixon.ads-pixiv.net": "abs-0-twimg."
 };
 
 // 需要重定向的路径
