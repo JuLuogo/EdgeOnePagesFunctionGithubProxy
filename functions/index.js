@@ -1,7 +1,7 @@
 // 域名映射配置
 const domain_mappings = {
   "www.pinterest.com": "x.",
-  "i.pinimg.com": "i.p.157658.xyz",
+  "i.pinimg.com": "i.p.",
   "s.pinimg.com": "pbs-twimg.",
   "www.recaptcha.net": "api-x.",
 };
