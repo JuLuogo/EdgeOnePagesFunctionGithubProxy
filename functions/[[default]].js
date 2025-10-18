@@ -146,6 +146,11 @@ async function modifyResponse(response, host_prefix, effective_hostname) {
   }
 
   let text = await response.text();
+
+  // 移除 HTML 中的 CSP meta 标签，避免前端加载受限
+  if (content_type.includes('text/html')) {
+    text = text.replace(/<meta[^>]*http-equiv=["']?Content-Security-Policy["']?[^>]*>/gi, '');
+  }
   
   // 使用有效主机名获取域名后缀部分（用于构建完整的代理域名）
   const domain_suffix = effective_hostname.substring(host_prefix.length);
