@@ -1,13 +1,9 @@
 // 域名映射配置
 const domain_mappings = {
-  "www.pixiv.net": "x.",
-  "i.pximg.net": "i.1.0721030.xyz",
-  "s.pximg.net": "pbs-twimg.",
-  "cdn.onesignal.com": "api-x.",
-  "imp.pixiv.net": "ads-api-x.",
-  "lc-event.pixiv.net": "abs-twimg.",
-  "pixon.ads-pixiv.net": "abs-0-twimg.",
-  "www.googletagmanager.com": "www-googletagmanager."
+  "www.pinterest.com": "x.",
+  "i.pinimg.com": "i.p.0721030.xyz",
+  "s.pinimg.com": "pbs-twimg.",
+  "www.recaptcha.net": "api-x.",
 };
 
 // 需要重定向的路径
